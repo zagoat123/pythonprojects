@@ -23,13 +23,16 @@ def draw():
         count += 1
         sat.draw()
     for l in lines:
-        screen.draw.line(l[0],l[1],(color="white"))
+        screen.draw.line(l[0],l[1],("white"))
+        
+def update():
+    pass
 
 def on_mouse_down(pos):
     global next_satellite, lines
     if next_satellite<number_of_satellite:
         if satellites[next_satellite].collidepoint(pos):
-            if next_satellite:
+            if next_satellite>0:
                 lines.append((satellites[next_satellite-1].pos, satellites[next_satellite].pos))
                 next_satellite+=1
         else:
